@@ -10,6 +10,11 @@
       "StackName": "amplify-awschat-dev-f1d19",
       "StackId": "arn:aws:cloudformation:us-east-1:730335504235:stack/amplify-awschat-dev-f1d19/2c3f59b0-1533-11f0-91db-0efff1173fbf",
       "AmplifyAppId": "d29g7goruko97v"
+    },
+    "categories": {
+      "auth": {
+        "awschat668fdc09": {}
+      }
     }
   }
 }
