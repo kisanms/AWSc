@@ -4,6 +4,9 @@ import * as SplashScreen from "expo-splash-screen";
 import { ActivityIndicator } from "react-native";
 import { useEffect, useState } from "react";
 import AppNavigator from "./app/Navigation/AppNavigator";
+import { Amplify } from "aws-amplify";
+import amplifyconfig from "./src/amplifyconfiguration.json";
+Amplify.configure(amplifyconfig);
 
 // Prevent splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
