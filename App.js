@@ -1,3 +1,4 @@
+import "react-native-gesture-handler"; // Add this at the very top
 import { StyleSheet, Text, View } from "react-native";
 import * as Font from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
@@ -6,10 +7,7 @@ import { useEffect, useState } from "react";
 import AppNavigator from "./app/Navigation/AppNavigator";
 import { Amplify } from "aws-amplify";
 import amplifyconfig from "./src/amplifyconfiguration.json";
-import {
-  useAuthenticator,
-  withAuthenticator,
-} from "@aws-amplify/ui-react-native";
+
 Amplify.configure(amplifyconfig);
 
 // Prevent splash screen from auto-hiding
