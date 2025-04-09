@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-awschat-dev-f5973-authRole",
+      "UnauthRoleArn": "arn:aws:iam::730335504235:role/amplify-awschat-dev-f5973-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::730335504235:role/amplify-awschat-dev-f5973-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-awschat-dev-f5973-deployment",
+      "UnauthRoleName": "amplify-awschat-dev-f5973-unauthRole",
+      "StackName": "amplify-awschat-dev-f5973",
+      "StackId": "arn:aws:cloudformation:us-east-1:730335504235:stack/amplify-awschat-dev-f5973/655a67c0-1561-11f0-979e-0afffff6629d",
+      "AmplifyAppId": "dul60g4iugyh6"
+    },
+    "categories": {
+      "auth": {
+        "awschat939d5c4e": {}
+      }
+    }
+  }
+}
