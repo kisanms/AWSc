@@ -3,40 +3,67 @@ import React, { useEffect } from "react";
 import { useAuthenticator } from "@aws-amplify/ui-react-native";
 
 export default function Home({ navigation }) {
-  const { user, signOut } = useAuthenticator((context) => [context.user]);
+  const { user, signOut, authStatus } = useAuthenticator((context) => [
+    context.user,
+    context.signOut,
+    context.authStatus
+  ]);
 
   // Redirect to Auth screen if user is not authenticated
   useEffect(() => {
-    if (!user) {
-      navigation.navigate("Auth");
+    if (authStatus !== 'authenticated') {
+      navigation.replace("AuthWelcome");
     }
-  }, [user, navigation]);
+  }, [authStatus, navigation]);
+
+  const handleSignOut = () => {
+    signOut();
+  };
 
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text style={{ fontFamily: "Pop-med", fontSize: 30 }}>Home</Text>
-      <Text style={{ fontFamily: "Pop-reg", fontSize: 20 }}>Welcome to Home</Text>
-      {user && (
-        <Pressable style={styles.button} onPress={signOut}>
-          <Text style={styles.link}>Sign Out</Text>
-        </Pressable>
-      )}
+    <View style={styles.container}>
+      <Text style={styles.title}>Welcome to home after so much AWS struggle!</Text>
+      <Text style={styles.subtitle}>
+        {user?.attributes?.email ? `Logged in as: ${user.attributes.email}` : "You are signed in"}
+      </Text>
+
+      <Pressable style={styles.button} onPress={handleSignOut}>
+        <Text style={styles.buttonText}>Sign Out</Text>
+      </Pressable>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  link: {
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20,
+  },
+  title: {
+    fontFamily: "Pop-bold",
+    fontSize: 24,
+    marginBottom: 20,
+    textAlign: "center",
+  },
+  subtitle: {
     fontFamily: "Pop-med",
     fontSize: 18,
-    color: "blue",
-    marginTop: 20,
+    color: "#666",
+    marginBottom: 40,
+    textAlign: "center",
   },
   button: {
-    backgroundColor: "#f0f0f0",
-    padding: 10,
-    borderRadius: 5,
+    backgroundColor: "#FF3B30",
+    padding: 15,
+    borderRadius: 8,
+    width: "80%",
     alignItems: "center",
-    marginTop: 20,
+  },
+  buttonText: {
+    fontFamily: "Pop-med",
+    fontSize: 18,
+    color: "white",
   },
 });
